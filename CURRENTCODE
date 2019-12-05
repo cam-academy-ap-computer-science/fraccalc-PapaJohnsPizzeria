@@ -1,0 +1,96 @@
+/*
+ * CLASS:
+ * New scanner
+ * get input
+ * run black box
+ * close scanner
+ * :D
+ * 
+ * METHOD:
+ * split the operands
+ * store them separately
+ * 
+ * 
+ * what's the operation?
+ * runs if's for the specific operation
+ * make methods for each operation
+ * 
+ * MULTIPLICATION:
+ * look for " * "
+ * 
+ * DIVISION:
+ * look for " / "
+ * 
+ * SUBTRACTION:
+ * look for " - "
+ * 
+ * ADDITION:
+ * look for " + "
+ * 
+ * 
+ */
+package fracCalc;
+import java.util.*;
+
+public class FracCalc {
+    public static void main(String[] args) {
+    	Scanner cs = new Scanner(System.in);
+    	String input = cs.nextLine();
+    	produceAnswer(input);
+    	cs.close();
+    }
+    
+    public static String produceAnswer(String input) {
+    	String ans = "jarjarbinks";
+    	    	
+    	if(input.indexOf(" * ") != -1) {
+    		int a = input.indexOf(" * ");
+    		int b = input.length();
+    		String oOne = input.substring(0, a);
+    		String oTwo = input.substring((a+3), b);
+    	}else if(input.indexOf(" / ") != -1) {
+    		int a = input.indexOf(" / ");
+    		
+    	}else if(input.indexOf(" + ") != -1) {
+    		int a = input.indexOf(" + ");
+    		
+    	}else if(input.indexOf(" - ") != -1) {
+    		int a = input.indexOf(" - ");
+    		
+    	}
+    	
+    	if(input.indexOf(" * ") != -1) {
+    		mul(input);
+    	}else if(input.indexOf(" / ") != -1) {
+    		div(input);
+    	}else if(input.indexOf(" + ") != -1) {
+    		add(input);
+    	}else if(input.indexOf(" - ") != -1) {
+    		sub(input);
+    	}
+        return ans;
+    }
+    
+    public static String mul(String input) {
+    	String ans = "jarjarbinks";
+    	
+    	return ans;
+    }
+    public static String div(String input) {
+    	String ans = "jarjarbinks";
+    	
+    	return ans;
+    }
+    public static String add(String input) {
+    	String ans = "jarjarbinks";
+    	
+    	return ans;
+    }   
+    public static String sub(String input) {
+    	String ans = "jarjarbinks";
+    	
+    	return ans;
+    }
+    // TODO: Fill in the space below with any helper methods that you think you will need
+    
+}
