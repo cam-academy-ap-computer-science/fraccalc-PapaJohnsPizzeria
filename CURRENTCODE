@@ -73,7 +73,9 @@ public class FracCalc {
     		numerator = oTwo.substring((oTwo.indexOf("_") + 1), oTwo.indexOf("/"));
     		denominator = oTwo.substring((oTwo.indexOf("/") + 1), oTwo.length());
     	} else if((oTwo.indexOf("/") != -1) && (oTwo.indexOf("_") == -1)) { 
-    		
+    		whole = "0";
+    		numerator = oTwo.substring(0, (oTwo.indexOf("/")));
+    		denominator = 
     	}
     	
     	ans = "whole:" + whole + " numerator:" + numerator + " denominator:" + denominator;
