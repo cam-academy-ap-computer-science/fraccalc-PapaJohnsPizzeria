@@ -59,40 +59,49 @@ public class FracCalc {
     	int b = input.length();
 		String oOne = input.substring(0, a);
     	String oTwo = input.substring((a+3), b);
-        
-    	String whole = "jarjarbinks";
-		String numerator = "jarjarbinks";
-		String denominator = "jarjarbinks";
+/*           	
+    	String wholeB = "jarjarbinks";
+		String numeratorB = "jarjarbinks";
+		String denominatorB = "jarjarbinks";
+		
+    	if((oOne.indexOf("_") == -1) && (oOne.indexOf("/") == -1)) {
+    		wholeB = oOne;
+    		numeratorB = "0";
+    		denominatorB = "1";
+    	} else if((oOne.indexOf("_") != -1) && (oOne.indexOf("/") != -1)) {
+    		wholeB = oOne.substring(0, oOne.indexOf("_"));
+    		numeratorB = oOne.substring((oOne.indexOf("_") + 1), oOne.indexOf("/"));
+    		denominatorB = oOne.substring((oOne.indexOf("/") + 1), oOne.length());
+    	} else if((oOne.indexOf("/") != -1) && (oOne.indexOf("_") == -1)) { 
+    		wholeB = "0";
+    		numeratorB = oOne.substring(0, (oOne.indexOf("/")));
+    		denominatorB = oOne.substring((oOne.indexOf("/")+1), oOne.length());
+    	}
+    	
+    	ans = "whole:" + wholeA + " numerator:" + numeratorA + " denominator:" + denominatorA;
+*/    	
+    	
+    	String wholeA = "jarjarbinks";
+		String numeratorA = "jarjarbinks";
+		String denominatorA = "jarjarbinks";
 		
     	if((oTwo.indexOf("_") == -1) && (oTwo.indexOf("/") == -1)) {
-    		whole = oTwo;
-    		numerator = "0";
-    		denominator = "1";
+    		wholeA = oTwo;
+    		numeratorA = "0";
+    		denominatorA = "1";
     	} else if((oTwo.indexOf("_") != -1) && (oTwo.indexOf("/") != -1)) {
-    		whole = oTwo.substring(0, oTwo.indexOf("_"));
-    		numerator = oTwo.substring((oTwo.indexOf("_") + 1), oTwo.indexOf("/"));
-    		denominator = oTwo.substring((oTwo.indexOf("/") + 1), oTwo.length());
+    		wholeA = oTwo.substring(0, oTwo.indexOf("_"));
+    		numeratorA = oTwo.substring((oTwo.indexOf("_") + 1), oTwo.indexOf("/"));
+    		denominatorA = oTwo.substring((oTwo.indexOf("/") + 1), oTwo.length());
     	} else if((oTwo.indexOf("/") != -1) && (oTwo.indexOf("_") == -1)) { 
-    		whole = "0";
-    		numerator = oTwo.substring(0, (oTwo.indexOf("/")));
-    		denominator = 
+    		wholeA = "0";
+    		numeratorA = oTwo.substring(0, (oTwo.indexOf("/")));
+    		denominatorA = oTwo.substring((oTwo.indexOf("/")+1), oTwo.length());
     	}
     	
-    	ans = "whole:" + whole + " numerator:" + numerator + " denominator:" + denominator;
+    	ans = "whole:" + wholeA + " numerator:" + numeratorA + " denominator:" + denominatorA;
     	
     	return ans;
-    	
-/*   	
-    	if(input.indexOf(" * ") != -1) {
-    		mul(input);
-    	}else if(input.indexOf(" / ") != -1) {
-    		div(input);
-    	}else if(input.indexOf(" + ") != -1) {
-    		add(input);
-    	}else if(input.indexOf(" - ") != -1) {
-    		sub(input);
-    	}
-*/
     }
     
     public static String mul(String input) {
