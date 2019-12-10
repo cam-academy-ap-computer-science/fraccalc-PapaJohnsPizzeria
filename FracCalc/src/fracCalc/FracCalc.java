@@ -65,22 +65,22 @@ public class FracCalc {
     	String oTwo = input.substring((a+3), b);
 
     	//splits first operand into 3
-    	String wholeA = "jarjarbinks";
-		String numeratorA = "jarjarbinks";
-		String denominatorA = "jarjarbinks";
+    	int wholeA = 1;
+		int numeratorA = 1;
+		int denominatorA = 1;
 		
     	if((oOne.indexOf("_") == -1) && (oOne.indexOf("/") == -1)) {
-    		wholeA = oOne;
-    		numeratorA = "0";
-    		denominatorA = "1";
+    		wholeA = Integer.parseInt(oOne);
+    		numeratorA = 0;
+    		denominatorA = 1;
     	} else if((oOne.indexOf("_") != -1) && (oOne.indexOf("/") != -1)) {
-    		wholeA = oOne.substring(0, oOne.indexOf("_"));
-    		numeratorA = oOne.substring((oOne.indexOf("_") + 1), oOne.indexOf("/"));
-    		denominatorA = oOne.substring((oOne.indexOf("/") + 1), oOne.length());
+    		wholeA = Integer.parseInt(oOne.substring(0, oOne.indexOf("_")));
+    		numeratorA = Integer.parseInt(oOne.substring((oOne.indexOf("_") + 1), oOne.indexOf("/")));
+    		denominatorA = Integer.parseInt(oOne.substring((oOne.indexOf("/") + 1), oOne.length()));
     	} else if((oOne.indexOf("/") != -1) && (oOne.indexOf("_") == -1)) { 
-    		wholeA = "0";
-    		numeratorA = oOne.substring(0, (oOne.indexOf("/")));
-    		denominatorA = oOne.substring((oOne.indexOf("/")+1), oOne.length());
+    		wholeA = 0;
+    		numeratorA = Integer.parseInt(oOne.substring(0, (oOne.indexOf("/"))));
+    		denominatorA = Integer.parseInt(oOne.substring((oOne.indexOf("/")+1), oOne.length()));
     	}    	
     	
     	//splits second operand into 3
@@ -103,50 +103,59 @@ public class FracCalc {
     	}
     	
 //    	ans = "whole:" + wholeB + " numerator:" + numeratorB + " denominator:" + denominatorB;
+    	//conversions for the "test input" methods
+    	int aA = wholeA;
+    	int bA = numeratorA;
+    	int cA = denominatorA;
+    	int aB = wholeB;
+    	int bB = numeratorB;
+    	int cB = denominatorB;
     	
     	//tests input for an operation
     	if(input.indexOf(" + ") != -1) { 
-    		add(aA, bA, cA, aB, bB, bC);
+    		add(aA, bA, cA, aB, bB, cB);
     	} else if(input.indexOf(" - ") != -1) {
-    		sub();
+    		sub(aA, bA, cA, aB, bB, cB);
     	} else if(input.indexOf(" * ") != -1) {
-    		mul();
+    		mul(aA, bA, cA, aB, bB, cB);
     	} else if(input.indexOf(" / ") != -1) {
-    		div();
+    		div(aA, bA, cA, aB, bB, cB);
     	}
     	return ans;
     }
     
-    public static String mul(String input) {
+    public static String mul(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
+    	String ans = "jarjarbinks";
+    	if(((numeratorB == 0) && (denominatorB == 1))&&((numeratorA == 0) && (denominatorA == 1))) {
+    		
+    	}
+    	return ans;
+    }
+    public static String div(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
     	
     	return ans;
     }
-    public static String div(String input) {
-    	String ans = "jarjarbinks";
-    	
-    	return ans;
-    }
-    public static String add(int wholeA, int numeratorA, int denominatatorA, int wholeB, int numeratorB, int denominatatorB) {
+    public static String add(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
     	int numeratorFINAL = 1;
-    	int denominatatorFINAL = 1;
+    	int denominatorFINAL = 1;
     	int wholeFINAL = wholeA + wholeB;
     	
     	//common denominator
-    	if(denominatatorA != denominatatorB) {
-    			denominatatorA = denominatatorA * denominatatorB;
-    			denominatatorB = denominatatorA * denominatatorB;
-    			numeratorA = numeratorA * denominatatorB;
-    			numeratorB = numeratorB * denominatatorA;
-    	} else if(denominatatorA == denominatatorB) { 
+    	if(denominatorA != denominatorB) {
+    		denominatorA = denominatorA * denominatorB;
+    		denominatorB = denominatorA * denominatorB;
+    		numeratorA = numeratorA * denominatorB;
+    		numeratorB = numeratorB * denominatorA;
+    	} else if(denominatorA == denominatorB) { 
     		numeratorFINAL = numeratorA + numeratorB;
-    		denominatatorFINAL =  denominatatorA;
+    		denominatorFINAL =  denominatorA;
     	}
-    	ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatatorFINAL;
+    	ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
     	return ans;
     }   
-    public static String sub(String input) {
+    public static String sub(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
     	
     	return ans;
