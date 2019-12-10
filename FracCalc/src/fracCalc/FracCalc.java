@@ -103,6 +103,7 @@ public class FracCalc {
     	}
     	
 //    	ans = "whole:" + wholeB + " numerator:" + numeratorB + " denominator:" + denominatorB;
+    	
     	//conversions for the "test input" methods
     	int aA = wholeA;
     	int bA = numeratorA;
@@ -126,9 +127,12 @@ public class FracCalc {
     
     public static String mul(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
+    	int solution = 1;
     	if(((numeratorB == 0) && (denominatorB == 1))&&((numeratorA == 0) && (denominatorA == 1))) {
-    		
+    		solution = wholeA * wholeB;
+        	ans = Integer.toString(solution);
     	}
+    	
     	return ans;
     }
     public static String div(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
@@ -142,6 +146,10 @@ public class FracCalc {
     	int denominatorFINAL = 1;
     	int wholeFINAL = wholeA + wholeB;
     	
+    	//whole number addition
+    	if((numeratorA == 0)&&(numeratorB == 0)) {
+    		wholeFINAL = wholeA + wholeB;
+    	}
     	//common denominator
     	if(denominatorA != denominatorB) {
     		denominatorA = denominatorA * denominatorB;
