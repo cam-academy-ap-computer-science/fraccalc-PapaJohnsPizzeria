@@ -24,6 +24,12 @@
  * if the numerator is the same as the denominator, then "+1" to the whole number
  * if the numerator is bigger than the denominator, then do numerator % denominator
  * 
+ * ESSENTIAL TO ANS!!! reduces fraction
+ * divide numerator by denominator = a
+ * multiply numerator by the original faction = b
+ * if a * b != a then do it again
+ * 
+ * 
  * MULTIPLICATION:
  * look for " * "
  * 
@@ -114,13 +120,13 @@ public class FracCalc {
     	
     	//tests input for an operation
     	if(input.indexOf(" + ") != -1) { 
-    		add(aA, bA, cA, aB, bB, cB);
+    		ans = add(aA, bA, cA, aB, bB, cB);
     	} else if(input.indexOf(" - ") != -1) {
-    		sub(aA, bA, cA, aB, bB, cB);
+    		ans = sub(aA, bA, cA, aB, bB, cB);
     	} else if(input.indexOf(" * ") != -1) {
-    		mul(aA, bA, cA, aB, bB, cB);
+    		ans = mul(aA, bA, cA, aB, bB, cB);
     	} else if(input.indexOf(" / ") != -1) {
-    		div(aA, bA, cA, aB, bB, cB);
+    		ans = div(aA, bA, cA, aB, bB, cB);
     	}
     	return ans;
     }
@@ -150,6 +156,7 @@ public class FracCalc {
     	if((numeratorA == 0)&&(numeratorB == 0)) {
     		wholeFINAL = wholeA + wholeB;
     	}
+    	
     	//common denominator
     	if(denominatorA != denominatorB) {
     		denominatorA = denominatorA * denominatorB;
@@ -160,12 +167,48 @@ public class FracCalc {
     		numeratorFINAL = numeratorA + numeratorB;
     		denominatorFINAL =  denominatorA;
     	}
-    	ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    	
+    	//construct final solution
+    	if(numeratorFINAL == 0) {
+    		//remove a 0/1
+    		ans = Integer.toString(wholeFINAL);
+    	} else if(numeratorFINAL == denominatorFINAL) {
+    		//take a 1/1, 2/2, etc... delete it and add one to whole
+    		ans = Integer.toString(wholeFINAL + 1);
+    	} else {
+        	//mixed number response
+    		if(numeratorFINAL < denominatorFINAL) {
+    			//if the fraction is proper and the numbers are aright
+    			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    		} else if(numeratorFINAL > denominatorFINAL) {
+    			//if the fraction is improper, i take the remainder and divide them
+    			//into an integer variable to get a whole value. then i add it to the 
+    			//whole and resolve the fraction into a proper one
+    			int addRemainder = numeratorFINAL / denominatorFINAL;
+    			numeratorFINAL = numeratorFINAL % denominatorFINAL;
+    			wholeFINAL = wholeFINAL + addRemainder;
+    			
+    			//ESSENTIAL TO ANS!!! reduces fraction
+    			
+    			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    		}
+    	}
     	return ans;
     }   
     public static String sub(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
+    	int numeratorFINAL = 1;
+    	int denominatorFINAL = 1;
+    	int wholeFINAL = wholeA - wholeB;
     	
+    	//construct final solution
+    	if(numeratorFINAL == 0) {
+    		ans = Integer.toString(wholeFINAL);
+    	} else if(numeratorFINAL == denominatorFINAL) {
+    		ans = Integer.toString(wholeFINAL + 1);
+    	} else {
+        	ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    	}
     	return ans;
     }
     
