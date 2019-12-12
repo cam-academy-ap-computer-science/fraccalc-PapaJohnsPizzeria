@@ -133,11 +133,51 @@ public class FracCalc {
     
     public static String mul(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
-    	int solution = 1;
+    	int wholeFINAL = 1;
+    	int numeratorFINAL = 1;
+    	int denominatorFINAL = 1;
+    	
     	if(((numeratorB == 0) && (denominatorB == 1))&&((numeratorA == 0) && (denominatorA == 1))) {
-    		solution = wholeA * wholeB;
-        	ans = Integer.toString(solution);
+    		//two whole numbers
+    		wholeFINAL = wholeA * wholeB;
+        	ans = Integer.toString(wholeFINAL);
+    	} else if(wholeA == 0 && wholeB == 0) {
+    		//if they're two fractions
+    		numeratorFINAL = numeratorA * numeratorB;
+    		denominatorFINAL = denominatorA * denominatorB;
+    		ans = numeratorFINAL + "/" + denominatorFINAL;
+    	} else if(numeratorA == 0 && wholeB == 0) {
+    		//whole times fraction
+    		numeratorFINAL = wholeA * numeratorB;
+    		denominatorFINAL = denominatorB;
+    	   	wholeFINAL = numeratorFINAL / denominatorFINAL;
+    	   	numeratorFINAL = numeratorFINAL % denominatorFINAL;
+
+    		if(wholeFINAL > 0 && numeratorFINAL > 0) {
+    			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    		} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
+            	ans = Integer.toString(wholeFINAL);
+    		} else if(wholeFINAL == 0) {
+    			ans = numeratorFINAL + "/" + denominatorFINAL;
+    		}
+    	} else if(numeratorB == 0 && wholeA == 0) {
+    		//fraction times whole
+    		numeratorFINAL = wholeB * numeratorA;
+    		denominatorFINAL = denominatorA;
+    	   	wholeFINAL = numeratorFINAL / denominatorFINAL;
+    	   	numeratorFINAL = numeratorFINAL % denominatorFINAL;
+
+    		if(wholeFINAL > 0 && numeratorFINAL > 0) {
+    			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    		} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
+            	ans = Integer.toString(wholeFINAL);
+    		} else if(wholeFINAL == 0) {
+    			ans = numeratorFINAL + "/" + denominatorFINAL;
+    		}
     	}
+    	//whole times a mix
+    	
+    	//mix times a whole
     	
     	return ans;
     }
