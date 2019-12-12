@@ -132,81 +132,23 @@ public class FracCalc {
     
     public static String mul(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
-    	int wholeFINAL = 1;
-    	int numeratorFINAL = 1;
-    	int denominatorFINAL = 1;
+    	int wholeFINAL;
+    	int numeratorFINAL;
+    	int denominatorFINAL;
     	
-    	if(((numeratorB == 0) && (denominatorB == 1))&&((numeratorA == 0) && (denominatorA == 1))) {
-    		//two whole numbers
-    		wholeFINAL = wholeA * wholeB;
-        	ans = Integer.toString(wholeFINAL);
-    	} else if(wholeA == 0 && wholeB == 0) {
-    		//if they're two fractions
-    		numeratorFINAL = numeratorA * numeratorB;
-    		denominatorFINAL = denominatorA * denominatorB;
+    	numeratorA = (wholeA * denominatorA) + numeratorA;
+    	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	numeratorFINAL = numeratorA * numeratorB;
+    	denominatorFINAL = denominatorA * denominatorB;
+    	wholeFINAL = numeratorFINAL / denominatorFINAL;
+    	numeratorFINAL = numeratorFINAL % denominatorFINAL;
+    	
+    	if(wholeFINAL == 0) { //fraction
     		ans = numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(numeratorA == 0 && wholeB == 0) {
-    		//whole times fraction
-    		numeratorFINAL = wholeA * numeratorB;
-    		denominatorFINAL = denominatorB;
-    	   	wholeFINAL = numeratorFINAL / denominatorFINAL;
-    	   	numeratorFINAL = numeratorFINAL % denominatorFINAL;
-
-    		if(wholeFINAL > 0 && numeratorFINAL > 0) {
-    			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-    		} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
-            	ans = Integer.toString(wholeFINAL);
-    		} else if(wholeFINAL == 0) {
-    			ans = numeratorFINAL + "/" + denominatorFINAL;
-    		}
-    	} else if(numeratorB == 0 && wholeA == 0) {
-    		//fraction times whole
-    		numeratorFINAL = wholeB * numeratorA;
-    		denominatorFINAL = denominatorA;
-    	   	wholeFINAL = numeratorFINAL / denominatorFINAL;
-    	   	numeratorFINAL = numeratorFINAL % denominatorFINAL;
-
-    		if(wholeFINAL > 0 && numeratorFINAL > 0) {
-    			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-    		} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
-            	ans = Integer.toString(wholeFINAL);
-    		} else if(wholeFINAL == 0) {
-    			ans = numeratorFINAL + "/" + denominatorFINAL;
-    		}
-    	} else if(numeratorA == 0 && (wholeB > 0 && numeratorB > 0)) {
-        	//whole times a mix
-    		numeratorFINAL = (wholeB * denominatorB) + numeratorB;
-        	numeratorFINAL = numeratorFINAL * wholeA;
-        	denominatorFINAL = denominatorB;
-        	wholeFINAL = numeratorFINAL / denominatorFINAL;
-        	numeratorFINAL = numeratorFINAL % denominatorFINAL;
-        	if(wholeFINAL == 0) {
-        		ans = numeratorFINAL + "/" + denominatorFINAL;
-        	} else if(wholeFINAL > 0 && numeratorFINAL > 0) {
-        		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-        	} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
-            	ans = Integer.toString(wholeFINAL);
-        	}
-    	} else if(numeratorB == 0 && (wholeA > 0 && numeratorA > 0)) {
-        	//mix times a whole
-    		numeratorFINAL = (wholeA * denominatorA) + numeratorA;
-        	numeratorFINAL = numeratorFINAL * wholeB;
-        	denominatorFINAL = denominatorA;
-        	wholeFINAL = numeratorFINAL / denominatorFINAL;
-        	numeratorFINAL = numeratorFINAL % denominatorFINAL;
-        	
-        	if(wholeFINAL == 0) {
-        		ans = numeratorFINAL + "/" + denominatorFINAL;
-        	} else if(wholeFINAL > 0 && numeratorFINAL > 0) {
-        		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-        	} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
-            	ans = Integer.toString(wholeFINAL);
-        	}
-    	} else if((wholeA > 0 && numeratorA > 0) && (wholeA > 0 && numeratorA > 0)) {
-    		if(numeratorA > 0) {
-        		numeratorA = (wholeA * denominatorA) + numeratorA;
-    		}
-    		
+    	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
+    		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
+        	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
     }
@@ -217,50 +159,35 @@ public class FracCalc {
     }
     public static String add(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
-    	int numeratorFINAL = 1;
-    	int denominatorFINAL = 1;
-    	int wholeFINAL = wholeA + wholeB;
+    	int wholeFINAL;
+    	int numeratorFINAL;
+    	int denominatorFINAL;
     	
-    	//whole number addition
-    	if((numeratorA == 0)&&(numeratorB == 0)) {
-    		wholeFINAL = wholeA + wholeB;
-    	}
+    	//turns it into improper fractions
+    	numeratorA = (wholeA * denominatorA) + numeratorA;
+    	numeratorB = (wholeB * denominatorB) + numeratorB;
     	
     	//common denominator
-    	if(denominatorA != denominatorB) {
-    		denominatorA = denominatorA * denominatorB;
-    		denominatorB = denominatorA * denominatorB;
-    		numeratorA = numeratorA * denominatorB;
-    		numeratorB = numeratorB * denominatorA;
-    	} else if(denominatorA == denominatorB) { 
-    		numeratorFINAL = numeratorA + numeratorB;
-    		denominatorFINAL =  denominatorA;
+    	if(denominatorB != denominatorA) {
+    		denominatorA *= denominatorB;
+    		denominatorB *= denominatorB;
+    		numeratorA *= denominatorB;
+    		numeratorB *= denominatorA;
     	}
     	
-    	//construct final solution
-    	if(numeratorFINAL == 0) {
-    		//remove a 0/1
-    		ans = Integer.toString(wholeFINAL);
-    	} else if(numeratorFINAL == denominatorFINAL) {
-    		//take a 1/1, 2/2, etc... delete it and add one to whole
-    		ans = Integer.toString(wholeFINAL + 1);
-    	} else {
-        	//mixed number response
-    		if(numeratorFINAL < denominatorFINAL) {
-    			//if the fraction is proper and the numbers are aright
-    			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-    		} else if(numeratorFINAL > denominatorFINAL) {
-    			//if the fraction is improper, i take the remainder and divide them
-    			//into an integer variable to get a whole value. Then I add it to the 
-    			//whole and resolve the fraction into a proper one
-    			int addRemainder = numeratorFINAL / denominatorFINAL;
-    			numeratorFINAL = numeratorFINAL % denominatorFINAL;
-    			wholeFINAL = wholeFINAL + addRemainder;
-    			
-    			//ESSENTIAL TO ANS!!! reduces fraction
-    			
-    			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-    		}
+    	//runs the operation
+    	numeratorFINAL = numeratorA + numeratorB;
+    	denominatorFINAL = denominatorA;
+    	wholeFINAL = numeratorFINAL / denominatorFINAL;
+    	numeratorFINAL = numeratorFINAL % denominatorFINAL;
+    	    	
+    	//stitches the answer together
+    	if(wholeFINAL == 0) { //fraction
+    		ans = numeratorFINAL + "/" + denominatorFINAL;
+    	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
+    		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
+        	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
     }   
