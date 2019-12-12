@@ -149,6 +149,8 @@ public class FracCalc {
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
     	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
         	ans = Integer.toString(wholeFINAL);
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
+        	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
     }
@@ -188,24 +190,45 @@ public class FracCalc {
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
     	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
         	ans = Integer.toString(wholeFINAL);
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
+        	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
     }   
     public static String sub(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
     	String ans = "jarjarbinks";
-    	int numeratorFINAL = 1;
-    	int denominatorFINAL = 1;
-    	int wholeFINAL = wholeA - wholeB;
+    	int wholeFINAL;
+    	int numeratorFINAL;
+    	int denominatorFINAL;
     	
-    	//construct final solution
-    	if(numeratorFINAL == 0) {
-    		ans = Integer.toString(wholeFINAL);
-    	} else if(numeratorFINAL == denominatorFINAL) {
-    		ans = Integer.toString(wholeFINAL + 1);
-    	} else {
-        	ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    	//turns it into improper fractions
+    	numeratorA = (wholeA * denominatorA) + numeratorA;
+    	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	
+    	//common denominator
+    	if(denominatorB != denominatorA) {
+    		denominatorA *= denominatorB;
+    		denominatorB *= denominatorB;
+    		numeratorA *= denominatorB;
+    		numeratorB *= denominatorA;
+    	}
+    	
+    	//runs the operation
+    	numeratorFINAL = numeratorA - numeratorB;
+    	denominatorFINAL = denominatorA;
+    	wholeFINAL = numeratorFINAL / denominatorFINAL;
+    	numeratorFINAL = numeratorFINAL % denominatorFINAL;
+    	    	
+    	//stitches the answer together
+    	if(wholeFINAL == 0) { //fraction
+    		ans = numeratorFINAL + "/" + denominatorFINAL;
+    	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
+    		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+    	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
+        	ans = Integer.toString(wholeFINAL);
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
+        	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
     }
-    
 }
