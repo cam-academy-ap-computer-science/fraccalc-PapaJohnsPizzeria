@@ -187,11 +187,27 @@ public class FracCalc {
         	} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
             	ans = Integer.toString(wholeFINAL);
         	}
+    	} else if(numeratorB == 0 && (wholeA > 0 && numeratorA > 0)) {
+        	//mix times a whole
+    		numeratorFINAL = (wholeA * denominatorA) + numeratorA;
+        	numeratorFINAL = numeratorFINAL * wholeB;
+        	denominatorFINAL = denominatorA;
+        	wholeFINAL = numeratorFINAL / denominatorFINAL;
+        	numeratorFINAL = numeratorFINAL % denominatorFINAL;
+        	
+        	if(wholeFINAL == 0) {
+        		ans = numeratorFINAL + "/" + denominatorFINAL;
+        	} else if(wholeFINAL > 0 && numeratorFINAL > 0) {
+        		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+        	} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
+            	ans = Integer.toString(wholeFINAL);
+        	}
+    	} else if((wholeA > 0 && numeratorA > 0) && (wholeA > 0 && numeratorA > 0)) {
+    		if(numeratorA > 0) {
+        		numeratorA = (wholeA * denominatorA) + numeratorA;
+    		}
+    		
     	}
-    	
-    	
-    	//mix times a whole
-    	
     	return ans;
     }
     public static String div(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
@@ -266,4 +282,3 @@ public class FracCalc {
     }
     
 }
-
