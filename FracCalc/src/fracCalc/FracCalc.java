@@ -173,8 +173,22 @@ public class FracCalc {
     		} else if(wholeFINAL == 0) {
     			ans = numeratorFINAL + "/" + denominatorFINAL;
     		}
+    	} else if(numeratorA == 0 && (wholeB > 0 && numeratorB > 0)) {
+        	//whole times a mix
+    		numeratorFINAL = (wholeB * denominatorB) + numeratorB;
+        	numeratorFINAL = numeratorFINAL * wholeA;
+        	denominatorFINAL = denominatorB;
+        	wholeFINAL = numeratorFINAL / denominatorFINAL;
+        	numeratorFINAL = numeratorFINAL % denominatorFINAL;
+        	if(wholeFINAL == 0) {
+        		ans = numeratorFINAL + "/" + denominatorFINAL;
+        	} else if(wholeFINAL > 0 && numeratorFINAL > 0) {
+        		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
+        	} else if(wholeFINAL > 0 && numeratorFINAL == 0) {
+            	ans = Integer.toString(wholeFINAL);
+        	}
     	}
-    	//whole times a mix
+    	
     	
     	//mix times a whole
     	
