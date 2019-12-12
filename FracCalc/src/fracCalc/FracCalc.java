@@ -29,7 +29,6 @@
  * multiply numerator by the original faction = b
  * if a * b != a then do it again
  * 
- * 
  * MULTIPLICATION:
  * look for " * "
  * 
@@ -222,7 +221,7 @@ public class FracCalc {
     			ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
     		} else if(numeratorFINAL > denominatorFINAL) {
     			//if the fraction is improper, i take the remainder and divide them
-    			//into an integer variable to get a whole value. then i add it to the 
+    			//into an integer variable to get a whole value. Then I add it to the 
     			//whole and resolve the fraction into a proper one
     			int addRemainder = numeratorFINAL / denominatorFINAL;
     			numeratorFINAL = numeratorFINAL % denominatorFINAL;
