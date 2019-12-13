@@ -136,13 +136,17 @@ public class FracCalc {
     	int numeratorFINAL;
     	int denominatorFINAL;
     	
+    	//converts to improper fraction
     	numeratorA = (wholeA * denominatorA) + numeratorA;
     	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	
+    	//runs the operation
     	numeratorFINAL = numeratorA * numeratorB;
     	denominatorFINAL = denominatorA * denominatorB;
     	wholeFINAL = numeratorFINAL / denominatorFINAL;
     	numeratorFINAL = numeratorFINAL % denominatorFINAL;
     	
+    	//stitches the answer together
     	if(wholeFINAL == 0) { //fraction
     		ans = numeratorFINAL + "/" + denominatorFINAL;
     	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
