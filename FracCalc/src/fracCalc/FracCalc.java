@@ -136,18 +136,24 @@ public class FracCalc {
     	int numeratorFINAL;
     	int denominatorFINAL;
     	
+    	//converts to improper fraction
     	numeratorA = (wholeA * denominatorA) + numeratorA;
     	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	
+    	//runs the operation
     	numeratorFINAL = numeratorA * numeratorB;
     	denominatorFINAL = denominatorA * denominatorB;
     	wholeFINAL = numeratorFINAL / denominatorFINAL;
     	numeratorFINAL = numeratorFINAL % denominatorFINAL;
     	
+    	//stitches the answer together
     	if(wholeFINAL == 0) { //fraction
     		ans = numeratorFINAL + "/" + denominatorFINAL;
     	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
     	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
+        	ans = Integer.toString(wholeFINAL);
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
         	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
@@ -213,6 +219,8 @@ public class FracCalc {
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
     	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
         	ans = Integer.toString(wholeFINAL);
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
+        	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
     }   
@@ -247,8 +255,9 @@ public class FracCalc {
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
     	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
         	ans = Integer.toString(wholeFINAL);
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
+        	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
     }
-    
 }
