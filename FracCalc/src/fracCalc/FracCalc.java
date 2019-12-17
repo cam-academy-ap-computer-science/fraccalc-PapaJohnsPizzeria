@@ -48,7 +48,7 @@ import java.util.*;
 public class FracCalc {
     public static void main(String[] args) {
     	Scanner cs = new Scanner(System.in);
-    	System.out.println("This is a calculator that can operate fractions and mixed numbers. \n"
+    	System.out.println("This calculator can operate on fractions and mixed numbers. \n"
     					+ "Type \"quit\" to turn off this calculator. \n"
     					+ "Type your problem:");
     	String input = "jarjarbinks";
@@ -86,7 +86,7 @@ public class FracCalc {
     		wholeA = 0;
     		numeratorA = Integer.parseInt(oOne.substring(0, (oOne.indexOf("/"))));
     		denominatorA = Integer.parseInt(oOne.substring((oOne.indexOf("/")+1), oOne.length()));
-    	}    	
+    	}
     	
     	//splits second operand into 3
     	int wholeB = 1;
@@ -147,13 +147,13 @@ public class FracCalc {
     	numeratorFINAL = numeratorFINAL % denominatorFINAL;
     	
     	//stitches the answer together
-    	if(wholeFINAL == 0) { //fraction
+    	if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
     		ans = numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
+    	} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
+    	} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
         	ans = Integer.toString(wholeFINAL);
-    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
         	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
@@ -179,11 +179,14 @@ public class FracCalc {
     	wholeFINAL = numeratorFINAL / denominatorFINAL;
     	numeratorFINAL = numeratorFINAL % denominatorFINAL;
     	
-    	if(wholeFINAL == 0) { //fraction
+    	//stitches the answer together
+    	if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
     		ans = numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
+    	} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
+    	} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
+        	ans = Integer.toString(wholeFINAL);
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
         	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
@@ -213,13 +216,13 @@ public class FracCalc {
     	numeratorFINAL = numeratorFINAL % denominatorFINAL;
     	    	
     	//stitches the answer together
-    	if(wholeFINAL == 0) { //fraction
+    	if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
     		ans = numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
+    	} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
+    	} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
         	ans = Integer.toString(wholeFINAL);
-    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
         	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
@@ -249,13 +252,13 @@ public class FracCalc {
     	numeratorFINAL = numeratorFINAL % denominatorFINAL;
     	    	
     	//stitches the answer together
-    	if(wholeFINAL == 0) { //fraction
+    	if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
     		ans = numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(wholeFINAL > 0 && numeratorFINAL > 0) { //mixed number
+    	} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
     		ans = wholeFINAL + "_" + numeratorFINAL + "/" + denominatorFINAL;
-    	} else if(wholeFINAL > 0 && numeratorFINAL == 0) { //whole number
+    	} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
         	ans = Integer.toString(wholeFINAL);
-    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {
+    	} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
         	ans = Integer.toString(wholeFINAL);
     	}
     	return ans;
