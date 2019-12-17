@@ -137,8 +137,16 @@ public class FracCalc {
     	int denominatorFINAL;
     	
     	//converts to improper fraction
-    	numeratorA = (wholeA * denominatorA) + numeratorA;
-    	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	if(numeratorA < 0) {
+    		numeratorA = (wholeA * denominatorA) - numeratorA;
+    	} else {
+        	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	}
+    	if(numeratorB < 0) {
+    		numeratorB = (wholeB * denominatorB) - numeratorB;
+    	} else {
+    		numeratorB = (wholeB * denominatorB) + numeratorB;
+    	}
     	
     	//runs the operation
     	numeratorFINAL = numeratorA * numeratorB;
@@ -165,8 +173,16 @@ public class FracCalc {
     	int denominatorFINAL;
     	
     	//turns mixed into improper
-    	numeratorA = (wholeA * denominatorA) + numeratorA;
-    	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	if(numeratorA < 0) {
+    		numeratorA = (wholeA * denominatorA) - numeratorA;
+    	} else {
+        	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	}
+    	if(numeratorB < 0) {
+    		numeratorB = (wholeB * denominatorB) - numeratorB;
+    	} else {
+    		numeratorB = (wholeB * denominatorB) + numeratorB;
+    	}
     	
     	//flips the second operand
     	int a = numeratorB;
@@ -198,8 +214,16 @@ public class FracCalc {
     	int denominatorFINAL;
     	
     	//turns it into improper fractions
-    	numeratorA = (wholeA * denominatorA) + numeratorA;
-    	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	if(numeratorA < 0) {
+    		numeratorA = (wholeA * denominatorA) - numeratorA;
+    	} else {
+        	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	}
+    	if(numeratorB < 0) {
+    		numeratorB = (wholeB * denominatorB) - numeratorB;
+    	} else {
+    		numeratorB = (wholeB * denominatorB) + numeratorB;
+    	}
     	
     	//common denominator
     	if(denominatorB != denominatorA) {
@@ -234,8 +258,16 @@ public class FracCalc {
     	int denominatorFINAL;
     	
     	//turns it into improper fractions
-    	numeratorA = (wholeA * denominatorA) + numeratorA;
-    	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	if(numeratorA < 0) {
+    		numeratorA = (wholeA * denominatorA) - numeratorA;
+    	} else {
+        	numeratorB = (wholeB * denominatorB) + numeratorB;
+    	}
+    	if(numeratorB < 0) {
+    		numeratorB = (wholeB * denominatorB) - numeratorB;
+    	} else {
+    		numeratorB = (wholeB * denominatorB) + numeratorB;
+    	}
     	
     	//common denominator
     	if(denominatorB != denominatorA) {
