@@ -69,7 +69,7 @@ public class FracCalc {
 		String oOne = input.substring(0, a);
     	String oTwo = input.substring((a+3), b);
 
-    	//splits first operand into 3
+    	//splits first operand into 3 integers
     	int wholeA = 1;
 		int numeratorA = 1;
 		int denominatorA = 1;
@@ -88,7 +88,7 @@ public class FracCalc {
     		denominatorA = Integer.parseInt(oOne.substring((oOne.indexOf("/")+1), oOne.length()));
     	}
     	
-    	//splits second operand into 3
+    	//splits second operand into 3 integers
     	int wholeB = 1;
 		int numeratorB = 1;
 		int denominatorB = 1;
@@ -106,8 +106,6 @@ public class FracCalc {
     		numeratorB = Integer.parseInt(oTwo.substring(0, (oTwo.indexOf("/"))));
     		denominatorB = Integer.parseInt(oTwo.substring((oTwo.indexOf("/")+1), oTwo.length()));
     	}
-    	
-//    	ans = "whole:" + wholeB + " numerator:" + numeratorB + " denominator:" + denominatorB;
     	
     	//conversions for the "test input" methods
     	int aA = wholeA;
