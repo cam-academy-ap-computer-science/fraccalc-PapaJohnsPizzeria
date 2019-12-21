@@ -143,11 +143,21 @@ public class FracCalc {
 		wholeFINAL = numeratorFINAL / denominatorFINAL;
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
+		//simplify fraction
+		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
+		int gcf = -1;
+		for (int i = smaller; i > 0; --i) {
+			if ((numeratorFINAL % i==0) && (denominatorFINAL%i==0)) {
+				gcf = i;
+				break;
+			}
+		}
+
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
-			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
+			ans = numeratorFINAL/gcf + "/" + (Math.abs(denominatorFINAL/gcf));
 		} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
-			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL)) + "/" + (Math.abs(denominatorFINAL));
+			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL/gcf)) + "/" + (Math.abs(denominatorFINAL/gcf));
 		} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
 			ans = Integer.toString(wholeFINAL);
 		} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
@@ -186,11 +196,21 @@ public class FracCalc {
 		wholeFINAL = numeratorFINAL / denominatorFINAL;
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
+		//simplify fraction
+		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
+		int gcf = -1;
+		for (int i = smaller; i > 0; --i) {
+			if ((numeratorFINAL % i==0) && (denominatorFINAL%i==0)) {
+				gcf = i;
+				break;
+			}
+		}
+
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
-			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
+			ans = numeratorFINAL/gcf + "/" + (Math.abs(denominatorFINAL/gcf));
 		} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
-			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL)) + "/" + (Math.abs(denominatorFINAL));
+			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL/gcf)) + "/" + (Math.abs(denominatorFINAL/gcf));
 		} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
 			ans = Integer.toString(wholeFINAL);
 		} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
@@ -231,11 +251,21 @@ public class FracCalc {
 		wholeFINAL = numeratorFINAL / denominatorFINAL;
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
+		//simplify fraction
+		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
+		int gcf = -1;
+		for (int i = smaller; i > 0; --i) {
+			if ((numeratorFINAL % i==0) && (denominatorFINAL%i==0)) {
+				gcf = i;
+				break;
+			}
+		}
+
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
-			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
+			ans = numeratorFINAL/gcf + "/" + (Math.abs(denominatorFINAL/gcf));
 		} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
-			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL)) + "/" + (Math.abs(denominatorFINAL));
+			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL/gcf)) + "/" + (Math.abs(denominatorFINAL/gcf));
 		} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
 			ans = Integer.toString(wholeFINAL);
 		} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
@@ -276,11 +306,21 @@ public class FracCalc {
 		wholeFINAL = numeratorFINAL / denominatorFINAL;
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
+		//simplify fraction
+		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
+		int gcf = -1;
+		for (int i = smaller; i > 0; --i) {
+			if ((numeratorFINAL % i==0) && (denominatorFINAL%i==0)) {
+				gcf = i;
+				break;
+			}
+		}
+
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
-			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
+			ans = numeratorFINAL/gcf + "/" + (Math.abs(denominatorFINAL/gcf));
 		} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
-			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL)) + "/" + (Math.abs(denominatorFINAL));
+			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL/gcf)) + "/" + (Math.abs(denominatorFINAL/gcf));
 		} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
 			ans = Integer.toString(wholeFINAL);
 		} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
