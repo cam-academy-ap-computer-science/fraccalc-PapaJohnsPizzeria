@@ -186,9 +186,9 @@ public class FracCalc {
 
 
 		//flips the second operand
-		int a = numeratorB;
+		int temp = numeratorB;
 		numeratorB = denominatorB;
-		denominatorB = a;
+		denominatorB = temp;
 
 		//runs multiplication
 		numeratorFINAL = numeratorA * numeratorB;
@@ -226,10 +226,14 @@ public class FracCalc {
 		int denominatorFINAL;
 
 		//turns it into improper fractions
-		if(wholeA != 0) {
+		if(wholeA < 0) {
+			numeratorA = (wholeA * denominatorA) - numeratorA;
+		} else if(wholeA > 0) {
 			numeratorA = (wholeA * denominatorA) + numeratorA;
 		}
-		if(wholeB != 0) {
+		if(wholeB < 0) {
+			numeratorB = (wholeB * denominatorB) - numeratorB;
+		} else if(wholeB > 0) {
 			numeratorB = (wholeB * denominatorB) + numeratorB;
 		}
 
