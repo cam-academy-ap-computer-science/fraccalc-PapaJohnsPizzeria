@@ -175,12 +175,12 @@ public class FracCalc {
 		//turns mixed into improper
 		if(wholeA < 0) {
 			numeratorA = (wholeA * denominatorA) - numeratorA;
-		} else {
+		} else if(wholeA > 0) {
 			numeratorA = (wholeA * denominatorA) + numeratorA;
 		}
 		if(wholeB < 0) {
 			numeratorB = (wholeB * denominatorB) - numeratorB;
-		} else {
+		} else if(wholeB > 0) {
 			numeratorB = (wholeB * denominatorB) + numeratorB;
 		}
 
@@ -228,12 +228,12 @@ public class FracCalc {
 		//turns it into improper fractions
 		if(wholeA < 0) {
 			numeratorA = (wholeA * denominatorA) - numeratorA;
-		} else {
+		} else if(wholeA > 0) {
 			numeratorA = (wholeA * denominatorA) + numeratorA;
 		}
 		if(wholeB < 0) {
 			numeratorB = (wholeB * denominatorB) - numeratorB;
-		} else {
+		} else if(wholeB > 0) {
 			numeratorB = (wholeB * denominatorB) + numeratorB;
 		}
 
@@ -283,12 +283,12 @@ public class FracCalc {
 		//turns it into improper fractions
 		if(wholeA < 0) {
 			numeratorA = (wholeA * denominatorA) - numeratorA;
-		} else {
+		} else if(wholeA > 0) {
 			numeratorA = (wholeA * denominatorA) + numeratorA;
 		}
 		if(wholeB < 0) {
 			numeratorB = (wholeB * denominatorB) - numeratorB;
-		} else {
+		} else if(wholeB > 0) {
 			numeratorB = (wholeB * denominatorB) + numeratorB;
 		}
 
