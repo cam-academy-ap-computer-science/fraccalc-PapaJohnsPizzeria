@@ -226,14 +226,10 @@ public class FracCalc {
 		int denominatorFINAL;
 
 		//turns it into improper fractions
-		if(wholeA < 0) {
-			numeratorA = (wholeA * denominatorA) - numeratorA;
-		} else if(wholeA > 0) {
+		if(wholeA != 0) {
 			numeratorA = (wholeA * denominatorA) + numeratorA;
 		}
-		if(wholeB < 0) {
-			numeratorB = (wholeB * denominatorB) - numeratorB;
-		} else if(wholeB > 0) {
+		if(wholeB != 0) {
 			numeratorB = (wholeB * denominatorB) + numeratorB;
 		}
 
