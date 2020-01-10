@@ -228,29 +228,27 @@ public class FracCalc {
 
 	public static String add(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
 		String ans = "jarjarbinks";
-		int wholeFINAL;
-		int numeratorFINAL;
-		int denominatorFINAL;
+		int wholeFINAL = 0;
+		int numeratorFINAL = 0;
+		int denominatorFINAL = 1;
 
 		//turns it into improper fractions
-			if(wholeA != 0) {
-				numeratorA = (wholeA * denominatorA) + numeratorA;
-			}
-			if(wholeB != 0) {
-				numeratorB = (wholeB * denominatorB) + numeratorB;
-			}
+		numeratorA = (wholeA * denominatorA) + numeratorA;
+		numeratorB = (wholeB * denominatorB) + numeratorB;
+			
 		
 		//common denominator
 		if(denominatorB != denominatorA) {
 			numeratorB *= denominatorA;
 			numeratorA *= denominatorB;
-			denominatorA *= denominatorB;
-			denominatorB = denominatorA;
+			denominatorFINAL = denominatorA * denominatorB;
+		} else if(denominatorB == denominatorA) {
+			denominatorFINAL = denominatorA;
 		}
+
 
 		//runs the operation
 		numeratorFINAL = numeratorA + numeratorB;
-		denominatorFINAL = denominatorA;
 		wholeFINAL = numeratorFINAL / denominatorFINAL;
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
@@ -259,18 +257,6 @@ public class FracCalc {
 		int ohno = gcd(numeratorFINAL, denominatorFINAL);
 		numeratorFINAL = numeratorFINAL / ohno;
 		denominatorFINAL = denominatorFINAL / ohno;
-		
-		
-		/*
-		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
-		int gcf = -1;
-		for (int i = smaller; i > 0; --i) {
-			if ((numeratorFINAL % i==0) && (denominatorFINAL%i==0)) {
-				gcf = i;
-				break;
-			}
-		}					old simplify function
-		*/
 		
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
