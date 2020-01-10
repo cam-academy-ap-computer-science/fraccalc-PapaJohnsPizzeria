@@ -119,6 +119,13 @@ public class FracCalc {
 		return ans;
 	}
 
+	public static int gcd(int a, int b) {
+		if (b==0) {
+			return a;
+		}
+		return Math.abs(gcd(b, a%b));
+	}
+	
 	public static String mul(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
 		String ans = "jarjarbinks";
 		int wholeFINAL;
@@ -226,17 +233,13 @@ public class FracCalc {
 		int denominatorFINAL;
 
 		//turns it into improper fractions
-		if(wholeA < 0) {
-			numeratorA = (wholeA * denominatorA) + numeratorA;
-		} else if(wholeA > 0) {
-			numeratorA = (wholeA * denominatorA) + numeratorA;
-		}
-		if(wholeB < 0) {
-			numeratorB = (wholeB * denominatorB) + numeratorB;
-		} else if(wholeB > 0) {
-			numeratorB = (wholeB * denominatorB) + numeratorB;
-		}
-
+			if(wholeA != 0) {
+				numeratorA = (wholeA * denominatorA) + numeratorA;
+			}
+			if(wholeB != 0) {
+				numeratorB = (wholeB * denominatorB) + numeratorB;
+			}
+		
 		//common denominator
 		if(denominatorB != denominatorA) {
 			numeratorB *= denominatorA;
@@ -252,6 +255,13 @@ public class FracCalc {
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
 		//simplify fraction
+		
+		int ohno = gcd(numeratorFINAL, denominatorFINAL);
+		numeratorFINAL = numeratorFINAL / ohno;
+		denominatorFINAL = denominatorFINAL / ohno;
+		
+		
+		/*
 		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
 		int gcf = -1;
 		for (int i = smaller; i > 0; --i) {
@@ -259,13 +269,14 @@ public class FracCalc {
 				gcf = i;
 				break;
 			}
-		}
-
+		}					old simplify function
+		*/
+		
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
-			ans = numeratorFINAL/gcf + "/" + (Math.abs(denominatorFINAL/gcf));
+			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
 		} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
-			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL/gcf)) + "/" + (Math.abs(denominatorFINAL/gcf));
+			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL)) + "/" + (Math.abs(denominatorFINAL));
 		} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
 			ans = Integer.toString(wholeFINAL);
 		} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
