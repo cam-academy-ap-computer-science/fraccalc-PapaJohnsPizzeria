@@ -125,7 +125,7 @@ public class FracCalc {
 		}
 		return Math.abs(gcd(b, a%b));
 	}
-	
+
 	public static String mul(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
 		String ans = "jarjarbinks";
 		int wholeFINAL;
@@ -151,20 +151,17 @@ public class FracCalc {
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
 		//simplify fraction
-		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
-		int gcf = -1;
-		for (int i = smaller; i > 0; --i) {
-			if ((numeratorFINAL % i==0) && (denominatorFINAL%i==0)) {
-				gcf = i;
-				break;
-			}
+		int ohno = gcd(numeratorFINAL, denominatorFINAL);
+		if(ohno != 1) {
+			denominatorFINAL = denominatorFINAL / ohno;
+			numeratorFINAL = numeratorFINAL / ohno;
 		}
 
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
-			ans = numeratorFINAL/gcf + "/" + (Math.abs(denominatorFINAL/gcf));
+			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
 		} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
-			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL/gcf)) + "/" + (Math.abs(denominatorFINAL/gcf));
+			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL)) + "/" + (Math.abs(denominatorFINAL));
 		} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
 			ans = Integer.toString(wholeFINAL);
 		} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
@@ -175,11 +172,11 @@ public class FracCalc {
 
 	public static String div(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
 		String ans = "jarjarbinks";
-		int wholeFINAL;
-		int numeratorFINAL;
-		int denominatorFINAL;
+		int wholeFINAL = 0;
+		int numeratorFINAL = 0;
+		int denominatorFINAL = 1;
 
-		//turns mixed into improper
+		//turns it into improper fractions
 		if(wholeA < 0) {
 			numeratorA = (wholeA * denominatorA) - numeratorA;
 		} else if(wholeA > 0) {
@@ -191,33 +188,31 @@ public class FracCalc {
 			numeratorB = (wholeB * denominatorB) + numeratorB;
 		}
 
-
 		//flips the second operand
-		int a = numeratorB;
-		numeratorB = denominatorB;
-		denominatorB = a;
+		int ohboi = numeratorB;
+		int state = numeratorB / Math.abs(numeratorB);
+		numeratorB = Math.abs(denominatorB) * state;
+		denominatorB = Math.abs(ohboi);
 
-		//runs multiplication
+
+		//runs the operation
 		numeratorFINAL = numeratorA * numeratorB;
 		denominatorFINAL = denominatorA * denominatorB;
 		wholeFINAL = numeratorFINAL / denominatorFINAL;
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
 		//simplify fraction
-		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
-		int gcf = -1;
-		for (int i = smaller; i > 0; --i) {
-			if ((numeratorFINAL % i==0) && (denominatorFINAL%i==0)) {
-				gcf = i;
-				break;
-			}
+		int ohno = gcd(numeratorFINAL, denominatorFINAL);
+		if(ohno != 1) {
+			denominatorFINAL = denominatorFINAL / ohno;
+			numeratorFINAL = numeratorFINAL / ohno;
 		}
 
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
-			ans = numeratorFINAL/gcf + "/" + (Math.abs(denominatorFINAL/gcf));
+			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
 		} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
-			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL/gcf)) + "/" + (Math.abs(denominatorFINAL/gcf));
+			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL)) + "/" + (Math.abs(denominatorFINAL));
 		} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
 			ans = Integer.toString(wholeFINAL);
 		} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
@@ -233,10 +228,17 @@ public class FracCalc {
 		int denominatorFINAL = 1;
 
 		//turns it into improper fractions
-		numeratorA = (wholeA * denominatorA) + numeratorA;
-		numeratorB = (wholeB * denominatorB) + numeratorB;
-			
-		
+		if(wholeA < 0) {
+			numeratorA = (wholeA * denominatorA) - numeratorA;
+		} else if(wholeA > 0) {
+			numeratorA = (wholeA * denominatorA) + numeratorA;
+		}
+		if(wholeB < 0) {
+			numeratorB = (wholeB * denominatorB) - numeratorB;
+		} else if(wholeB > 0) {
+			numeratorB = (wholeB * denominatorB) + numeratorB;
+		}
+
 		//common denominator
 		if(denominatorB != denominatorA) {
 			numeratorB *= denominatorA;
@@ -246,18 +248,18 @@ public class FracCalc {
 			denominatorFINAL = denominatorA;
 		}
 
-
 		//runs the operation
 		numeratorFINAL = numeratorA + numeratorB;
 		wholeFINAL = numeratorFINAL / denominatorFINAL;
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
 		//simplify fraction
-		
 		int ohno = gcd(numeratorFINAL, denominatorFINAL);
-		numeratorFINAL = numeratorFINAL / ohno;
-		denominatorFINAL = denominatorFINAL / ohno;
-		
+		if(ohno != 1) {
+			denominatorFINAL = denominatorFINAL / ohno;
+			numeratorFINAL = numeratorFINAL / ohno;
+		}
+
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
 			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
@@ -273,9 +275,10 @@ public class FracCalc {
 
 	public static String sub(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
 		String ans = "jarjarbinks";
-		int wholeFINAL;
-		int numeratorFINAL;
-		int denominatorFINAL;
+		int wholeFINAL = 0;
+		int numeratorFINAL = 0;
+		int denominatorFINAL = 1;
+
 
 		//turns it into improper fractions
 		if(wholeA < 0) {
@@ -293,31 +296,28 @@ public class FracCalc {
 		if(denominatorB != denominatorA) {
 			numeratorB *= denominatorA;
 			numeratorA *= denominatorB;
-			denominatorA *= denominatorB;
-			denominatorB = denominatorA;
+			denominatorFINAL = denominatorA * denominatorB;
+		} else if(denominatorB == denominatorA) {
+			denominatorFINAL = denominatorA;
 		}
 
 		//runs the operation
 		numeratorFINAL = numeratorA - numeratorB;
-		denominatorFINAL = denominatorA;
 		wholeFINAL = numeratorFINAL / denominatorFINAL;
 		numeratorFINAL = numeratorFINAL % denominatorFINAL;
 
 		//simplify fraction
-		int smaller = numeratorFINAL < denominatorFINAL ? numeratorFINAL : denominatorFINAL;
-		int gcf = -1;
-		for (int i = smaller; i > 0; --i) {
-			if ((numeratorFINAL % i==0) && (denominatorFINAL%i==0)) {
-				gcf = i;
-				break;
-			}
+		int ohno = gcd(numeratorFINAL, denominatorFINAL);
+		if(ohno != 1) {
+			denominatorFINAL = denominatorFINAL / ohno;
+			numeratorFINAL = numeratorFINAL / ohno;
 		}
 
 		//stitches the answer together
 		if(wholeFINAL == 0 && numeratorFINAL != 0) { //fraction
-			ans = numeratorFINAL/gcf + "/" + (Math.abs(denominatorFINAL/gcf));
+			ans = numeratorFINAL + "/" + (Math.abs(denominatorFINAL));
 		} else if(wholeFINAL != 0 && numeratorFINAL != 0) { //mixed number
-			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL/gcf)) + "/" + (Math.abs(denominatorFINAL/gcf));
+			ans = wholeFINAL + "_" + (Math.abs(numeratorFINAL)) + "/" + (Math.abs(denominatorFINAL));
 		} else if(wholeFINAL != 0 && numeratorFINAL == 0) { //whole number
 			ans = Integer.toString(wholeFINAL);
 		} else if(wholeFINAL == 0 && numeratorFINAL == 0) {//zero
