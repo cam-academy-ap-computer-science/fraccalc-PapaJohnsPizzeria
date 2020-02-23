@@ -5,34 +5,35 @@
  * close scanner
  * accepting multiple inputs
  * do while (string "quit" != (underscored)"QuIt")
- * 
+ *
  * METHOD:
  * split the operands
  * store them separately
- * 
+ *
  * what's the operation?
  * runs if's for the specific operation
  * make methods for each operation
- * 
+ *
  * SEPERATING THE NUMBERS:
  * if there isn't an underscore, then the "numerator = 0" + "denominator = 1"
  * if there is an underscore, then the number between the "_" and "/" is the numerator
  * the number between the "/" and end of " " is the denominator
- * 
+ *
  * COMMON DENOMINATOR:
  * if they have the same denominator, then add the numerator
  * if the numerator is the same as the denominator, then "+1" to the whole number
  * if the numerator is bigger than the denominator, then do numerator % denominator
- * 
+ *
  * ESSENTIAL TO ANS!!! reduces fraction:
  * divide numerator by denominator = a
  * multiply numerator by the original faction = b
  * if a * b != a then do it again
- * 
+ *
  * MIXED TO IMPROPER FRACTION:
  * Simple: whole * denominator + numerator (assumes everything is whole)
  * Whole is negative: whole times denominator - numerator (assumes whole is negative)
- * 
+ *
+ *test to see if atom+git works
  */
 package fracCalc;
 import java.util.*;
@@ -65,15 +66,20 @@ public class FracCalc {
 		int numeratorA = 1;
 		int denominatorA = 1;
 
-		if((oOne.indexOf("_") == -1) && (oOne.indexOf("/") == -1)) {
+		if((oOne.indexOf("_") == -1) && (oOne.indexOf("/") == -1))
+		{
 			wholeA = Integer.parseInt(oOne);
 			numeratorA = 0;
 			denominatorA = 1;
-		} else if((oOne.indexOf("_") != -1) && (oOne.indexOf("/") != -1)) {
+		}
+		else if((oOne.indexOf("_") != -1) && (oOne.indexOf("/") != -1))
+		{
 			wholeA = Integer.parseInt(oOne.substring(0, oOne.indexOf("_")));
 			numeratorA = Integer.parseInt(oOne.substring((oOne.indexOf("_") + 1), oOne.indexOf("/")));
 			denominatorA = Integer.parseInt(oOne.substring((oOne.indexOf("/") + 1), oOne.length()));
-		} else if((oOne.indexOf("/") != -1) && (oOne.indexOf("_") == -1)) { 
+		}
+		else if((oOne.indexOf("/") != -1) && (oOne.indexOf("_") == -1))
+		{
 			wholeA = 0;
 			numeratorA = Integer.parseInt(oOne.substring(0, (oOne.indexOf("/"))));
 			denominatorA = Integer.parseInt(oOne.substring((oOne.indexOf("/")+1), oOne.length()));
@@ -84,15 +90,20 @@ public class FracCalc {
 		int numeratorB = 1;
 		int denominatorB = 1;
 
-		if((oTwo.indexOf("_") == -1) && (oTwo.indexOf("/") == -1)) {
+		if((oTwo.indexOf("_") == -1) && (oTwo.indexOf("/") == -1))
+		{
 			wholeB = Integer.parseInt(oTwo);
 			numeratorB = 0;
 			denominatorB = 1;
-		} else if((oTwo.indexOf("_") != -1) && (oTwo.indexOf("/") != -1)) {
+		}
+		else if((oTwo.indexOf("_") != -1) && (oTwo.indexOf("/") != -1))
+		{
 			wholeB = Integer.parseInt(oTwo.substring(0, oTwo.indexOf("_")));
 			numeratorB = Integer.parseInt(oTwo.substring((oTwo.indexOf("_") + 1), oTwo.indexOf("/")));
 			denominatorB = Integer.parseInt(oTwo.substring((oTwo.indexOf("/") + 1), oTwo.length()));
-		} else if((oTwo.indexOf("/") != -1) && (oTwo.indexOf("_") == -1)) { 
+		}
+		else if((oTwo.indexOf("/") != -1) && (oTwo.indexOf("_") == -1))
+		{
 			wholeB = 0;
 			numeratorB = Integer.parseInt(oTwo.substring(0, (oTwo.indexOf("/"))));
 			denominatorB = Integer.parseInt(oTwo.substring((oTwo.indexOf("/")+1), oTwo.length()));
@@ -107,7 +118,7 @@ public class FracCalc {
 		int cB = denominatorB;
 
 		//tests input for an operation
-		if(input.indexOf(" + ") != -1) { 
+		if(input.indexOf(" + ") != -1) {
 			ans = add(aA, bA, cA, aB, bB, cB);
 		} else if(input.indexOf(" - ") != -1) {
 			ans = sub(aA, bA, cA, aB, bB, cB);
@@ -271,7 +282,7 @@ public class FracCalc {
 			ans = Integer.toString(wholeFINAL);
 		}
 		return ans;
-	}   
+	}
 
 	public static String sub(int wholeA, int numeratorA, int denominatorA, int wholeB, int numeratorB, int denominatorB) {
 		String ans = "jarjarbinks";
